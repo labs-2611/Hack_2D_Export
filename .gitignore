@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+artifacts/
+dist/*
+!dist/Hack2DExport-Revit2026.zip
+installer/payload/
+**/__pycache__/
+*.pyc
+*.log
+*.tmp
+*.user

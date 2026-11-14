@@ -1,0 +1,6 @@
+{
+  "name": "View2dExport",
+  "typeName": "Agentulator.Tools.View2dExport",
+  "version": "1.0.0",
+  "summary": "Export element-grouped Revit 2D view geometry to the V2DG v6 binary format, optionally filtering to selected element IDs."
+}

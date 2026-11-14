@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RevitVersion Condition="'$(RevitVersion)' == ''">2027</RevitVersion>
+    <RevitRuntime Condition="'$(RevitRuntime)' == ''">10</RevitRuntime>
+    <TargetFramework>net$(RevitRuntime).0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AssemblyName>Hack2DExport</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="RevitAddin.cs" />
+    <Compile Include="View2dCore.g.cs" />
+    <Reference Include="RevitAPI"><HintPath>$(RevitDir)\RevitAPI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="RevitAPIUI"><HintPath>$(RevitDir)\RevitAPIUI.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "scope": { "type": "string", "enum": ["host", "source"], "default": "host" },
+    "linkInstanceId": { "type": "integer", "minimum": 1 },
+    "viewId": { "type": "integer", "minimum": 1 },
+    "maxViews": { "type": "integer", "minimum": 1, "maximum": 1000, "default": 1 },
+    "listOnly": { "type": "boolean", "default": false },
+    "plansOnly": { "type": "boolean", "default": false },
+    "levelNameContains": { "type": "string", "default": "" },
+    "viewNameContains": { "type": "string", "default": "" },
+    "elementIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "integer", "minimum": 1 }, "description": "IDs in the selected source document; requires one viewId. Unlisted elements are omitted from the V2DG artifact." },
+    "includeAnnotations": { "type": "boolean", "default": true },
+    "includePatternLines": { "type": "boolean", "default": false },
+    "displayStyle": { "type": "string", "enum": ["view", "wireframe", "hlr"], "default": "view" },
+    "maxPrimitives": { "type": "integer", "minimum": 0, "default": 0 },
+    "detailLevel": { "type": "string", "enum": ["view", "Coarse", "Medium", "Fine"], "default": "view", "description": "Temporary override for an editable host view; restored by rolling back the transaction." }
+  },
+  "allOf": [
+    { "if": { "properties": { "scope": { "const": "source" } }, "required": ["scope"] }, "then": { "required": ["linkInstanceId"] } },
+    { "if": { "required": ["elementIds"] }, "then": { "required": ["viewId"] } }
+  ]
+}

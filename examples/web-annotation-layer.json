@@ -1,0 +1,25 @@
+{
+  "format": "V2DGElementOverlay/1",
+  "viewId": 1350701,
+  "baseSha256": "1c4a77555835f2232ff176e3e391326a6cdd0c8c2e5c3deb222b10f0a584c1da",
+  "sourceKind": "web-authored",
+  "changes": [
+    {
+      "op": "add",
+      "key": "web:review-01\u0000-1\u0000-1",
+      "element": {
+        "key": "web:review-01\u0000-1\u0000-1",
+        "uniqueId": "7a6d8a65-32d0-4c17-9bdb-f6da37c8be82",
+        "r": -1,
+        "s": "web:review-01",
+        "c": "Review notes",
+        "k": "Annotation",
+        "f": "",
+        "t": "Markup",
+        "p": [
+          ["curve:Line", [-23, 8, 32, -21, 8, 32], [189, 0, 199], "", 1000000000, 0, 0.00082, -1, null]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "list drawable 2D views",
+  "request": "List the 2D views I can export from the open Revit model.",
+  "args": { "scope": "host", "listOnly": true, "maxViews": 1 },
+  "expect": { "status": "success", "readOnly": true, "metadataHasKeys": ["documentTitle", "views"] }
+}
