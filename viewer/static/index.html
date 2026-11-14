@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>V2DG Drawing Viewer</title><link rel="stylesheet" href="/atlas.css"></head>
+<body>
+<header><div><strong>V2DG DRAWING VIEWER</strong><span>Local Revit 2D captures</span></div><div id="status">Loading views…</div></header>
+<div class="layout">
+<aside>
+<section><h2>Element revision</h2><p>Compose a small second capture over its full view by Revit element ID.</p><label class="option"><input id="useElementOverlay" type="checkbox" checked> Show colored revision</label><div id="overlayStatus" class="scaleReadout">Loading revision…</div><div id="overlayLegend" class="editLegend" aria-label="Edited Revit elements"></div><button id="zoomChanges">Zoom to changed elements</button></section>
+<section><h2>Views and overlays</h2><p>Set each view to full drawing, model only, annotations only, or hidden. Views align in model coordinates.</p><div id="layers"></div></section>
+<section><h2>True view scale</h2><p>Show one complete Revit view at its saved scale. Calibrate the bar against a physical ruler for accurate size on your screen.</p><label class="fieldLabel" for="scaleView">View</label><select id="scaleView"></select><label class="fieldLabel" for="screenPpi">Screen CSS pixels per inch</label><input id="screenPpi" type="number" min="30" max="400" step="1" value="96"><div class="ruler"><span id="rulerBar"></span><small>Measure this as 1 inch</small></div><button id="trueView" class="primary">Show true view scale</button><div id="scaleReadout" class="scaleReadout">Fit view</div></section>
+<section><h2>Highlight elements</h2><p>Click an element in the drawing, or choose a family to highlight every matching element across visible views.</p><label class="fieldLabel" for="highlightFamily">Family</label><select id="highlightFamily"><option value="">Click an element</option></select><div class="highlightRow"><label for="highlightColor">Highlight color</label><input id="highlightColor" type="color" value="#e34b27"><button id="clearHighlight">Clear</button></div><div id="highlightStatus" class="scaleReadout">No highlight</div></section>
+<section><h2>Categories</h2><div class="actions"><button id="allCategories">Show all</button><button id="noCategories">Hide all</button></div><div id="categories"></div></section>
+<section><h2>Display</h2><label class="option"><input id="showText" type="checkbox" checked> Show annotation text</label><label class="option"><input id="linePatterns" type="checkbox" checked> Show line dashes and dots</label><label class="option"><input id="smoothCurves" type="checkbox" checked> Smooth resolved curves</label></section>
+</aside>
+<main><div class="toolbar"><span id="drawingTitle">Drawing views</span><div><button id="fit">Fit</button><button id="zoomOut">−</button><button id="zoomIn">+</button></div></div><div class="canvasWrap"><canvas id="drawing"></canvas><div class="badge" id="counts">—</div><div class="hint">SCROLL TO ZOOM · DRAG TO PAN · CLICK TO HIGHLIGHT</div></div><div class="inspect" id="inspect">Click a line or annotation to highlight its Revit element.</div></main>
+</div><script type="module" src="/atlas.js"></script>
+</body></html>

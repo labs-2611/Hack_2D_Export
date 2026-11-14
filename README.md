@@ -13,9 +13,12 @@ Standalone Revit 2026/2027 add-in, Agentulator test adapter, and open decoder fo
 - `docs/validation.md`: live Agentulator checks, build results, and remaining UI verification.
 - `docs/revit-2026.md`: 2026 build and installation commands, runtime selection, and live test checklist.
 - `v2dg/`: Python standard-library decoder and element-stream comparison CLI.
+- `viewer/`: standalone browser viewer and local server for full V2DG views and small revision captures.
 - `samples/two-door-tags-base.v2dg` and `samples/two-door-tags-moved.v2dg`: two 1,738-byte real Revit captures that differ by two temporary tag moves.
 
 ## Install and use
+
+To preview a capture without Revit, double-click `open-viewer.cmd` for the included example, or run `python -m viewer "C:\path\to\view.v2dg"`. See the [viewer guide](viewer/README.md) for multiple views, line-pattern sidecars, and a second element capture. The viewer needs Python 3 and a browser; it does not need Node, iModel, or Agentulator.
 
 Run `./install-testing.ps1` in PowerShell. It copies `plugin/View2dExport` into the configured Agentulator testing tool root; it does not invoke Revit. Agentulator Test Mode loads the tool, usually after its watcher finishes recompiling. Call it through Agentulator MCP with **both** `testing: true` and `test: true`:
 
