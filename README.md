@@ -16,9 +16,30 @@ Standalone Revit 2026/2027 add-in, Agentulator test adapter, and open decoder fo
 - `viewer/`: standalone browser viewer and local server for full V2DG views and small revision captures.
 - `samples/two-door-tags-base.v2dg` and `samples/two-door-tags-moved.v2dg`: two 1,738-byte real Revit captures that differ by two temporary tag moves.
 
-## Install and use
+## Run the drawing viewer
 
-To preview a capture without Revit, double-click `open-viewer.cmd` for the included example, or run `python -m viewer "C:\path\to\view.v2dg"`. See the [viewer guide](viewer/README.md) for multiple views, line-pattern sidecars, and a second element capture. The viewer needs Python 3 and a browser; it does not need Node, iModel, or Agentulator.
+Install Python 3, then open PowerShell in this repository (`D:\Dev\Hack_2D_Export`). To try the included base drawing and two-element revision, double-click `open-viewer.cmd` or run:
+
+```powershell
+python -m viewer
+```
+
+To open a full view exported from Revit, pass its `.v2dg` file. The viewer automatically reads a matching `.line-patterns.json` sidecar beside it:
+
+```powershell
+python -m viewer "C:\captures\floor-plan.v2dg"
+```
+
+Pass multiple full-view captures to overlay plans, or add a small second capture for an element-level revision:
+
+```powershell
+python -m viewer "C:\captures\plan.v2dg" "C:\captures\rcp.v2dg"
+python -m viewer "C:\captures\plan.v2dg" --revision "C:\captures\changed-elements.v2dg"
+```
+
+The viewer opens `http://127.0.0.1:4179/` in a browser. Keep its terminal open and press Ctrl+C to stop it. If that port is occupied, add `--port 4180`. The viewer uses Python's standard library and a browser; it does not need Node, iModel, Agentulator, or Revit to display an existing capture. See the [viewer guide](viewer/README.md) for controls and revision behavior.
+
+## Install and use the exporter
 
 Run `./install-testing.ps1` in PowerShell. It copies `plugin/View2dExport` into the configured Agentulator testing tool root; it does not invoke Revit. Agentulator Test Mode loads the tool, usually after its watcher finishes recompiling. Call it through Agentulator MCP with **both** `testing: true` and `test: true`:
 
